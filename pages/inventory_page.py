@@ -6,15 +6,18 @@ class InventoryPage:
         self.page = page
 
     @property
-    def add_to_cart(self):
-        return self.page.locator('button:text("Add to cart")')
+    def add_to_cart(self) -> Locator:
+        return self.page.locator('button:near(.inventory_item)')
+
+    @property
+    def number_of_all_items_in_cart(self) -> int:
+        return self.add_to_cart.count()
 
     @property
     def cart(self) -> Locator:
-        return self.page.locator("a:has-text(\"6\")")
+        return self.page.locator(f"a:has-text(\"{self.number_of_all_items_in_cart - 1}\")")
 
     def add_all_items_to_cart(self) -> None:
-        buttons = self.add_to_cart.count()
-        for i in range(buttons):
+        for i in range(self.number_of_all_items_in_cart):
             self.add_to_cart.nth(i).click()
         self.cart.click()

@@ -15,6 +15,6 @@ def test_adding_items_to_cart(user_data: dict, playwright: Playwright):
     inventory_page = InventoryPage(page)
     main_page.login_to_store(user_data)
     inventory_page.add_all_items_to_cart()
-    context.tracing.stop(path="trace.zip")
+    context.tracing.stop(path='trace_test_adding_items_to_cart.zip')
     context.close()
     browser.close()
