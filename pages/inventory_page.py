@@ -7,11 +7,7 @@ class InventoryPage:
 
     @property
     def add_to_cart(self):
-        x = 'button'
-        if x == "#react-burger-menu-btn":
-            return False
-        else:
-            return self.page.locator(f'{x}')
+        return self.page.locator('button:text("Add to cart")')
 
     @property
     def cart(self) -> Locator:
