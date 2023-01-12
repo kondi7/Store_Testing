@@ -15,6 +15,6 @@ def test_sorting(user_data: dict, playwright: Playwright):
     inventory_page = InventoryPage(page)
     main_page.login_to_store(user_data)
     inventory_page.name_z_to_a_option()
-    context.tracing.stop(path='test_results/trace_test_sort_items.zip')
     context.close()
     browser.close()
+    context.tracing.stop(path='test_results/trace_test_sort_items.zip')
