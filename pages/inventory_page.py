@@ -35,7 +35,7 @@ class InventoryPage:
         self.cart.click()
 
     def name_z_to_a_option(self) -> None:
-        first_position = self.item_select[0]
-        last_position = self.item_select[-1]
         self.sort_options.select_option("za")
-        # assert first_position == last_position
+        div_element = self.page.query_selector(".inventory_item_desc")
+        text = div_element.text_content()
+        assert text == "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton."
